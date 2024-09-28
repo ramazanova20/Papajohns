@@ -39,12 +39,12 @@ function popup(img, name, price, id){
     popProduct.innerHTML=`
      
             <div class="bg-black opacity-80 fixed inset-0 z-[50]" onclick="closePopup()">
-            <div id="popCard" class="px-2 flex bg-[#fff] fixed inset-0 z-[100] top-[25%] lg:top-[20%] mx-auto h-[75%] flex-col items-center justify-center w-[95%] lg:w-[25%]">
+            <div id="popCard" class="px-2 flex bg-[#fff] fixed inset-0 z-[100] top-[25%] lg:top-[20%] mx-auto h-[75%] flex-col items-center justify-center w-[85%] lg:w-[25%]">
                 <div class="bagla flex pb-2 items-end justify-end w-[100%]">
                     <span onclick="closePopup()" class="text-[16px] font-bold">Bağla <i class="fa-solid fa-circle-xmark"></i></span>
                 </div>
                 <div class="card ">
-                    <div class="cardPic w-[320px] flex items-center justify-center">
+                    <div class="cardPic  w-[320px] flex items-center justify-center">
                         <img src="${img}" alt="" class="w-[90%] object-cover">
                     </div>
                     <div class="cardInfo pl-4 pr-4">
@@ -87,7 +87,7 @@ function popup(img, name, price, id){
                                     </div>
                                 </div>
                             </div>
-                            <button onclick="addBasket('${img}', '${name}', '${price}', '${id}')"  class="bg-[#0F9675] flex items-center rounded-md font-bold justify-center text-[18px] text-white w-[10%] lg:w-[35%] uppercase text-center">Sebete at</button>
+                            <button onclick="addOrder('${img}', '${name}', '${price}', '${id}')"  class="bg-[#0F9675] flex items-center rounded-md font-bold justify-center text-[18px] text-white w-[40%] lg:w-[35%] uppercase text-center">Sebete at</button>
                         </div>
                     </div>
                 </div>
@@ -97,20 +97,49 @@ function popup(img, name, price, id){
     `;
 }
 
-function  closePopup()  {
+function closePopup() {
     popProduct.innerHTML = "";
-}
-datalar();
-
-function countPro(arg) {
-    const countSum = document.querySelector("#countSum")
-    let value = arg + +countSum.innerHTML
-
+  }
+  
+  function countPro(arg) {
+    const countSum = document.getElementById("countSum");
+    let value = arg + Number(countSum.innerHTML);
+  
     if (value < 1) {
-        countSum.innerHTML = 1
-        document.getElementById("btnMin").disabled = true
+      countSum.innerHTML = 1;
+      document.getElementById("btnMin").disabled = true;
     } else {
-        document.getElementById("btnMin").disabled = false
-        countSum.innerHTML = value
+      document.getElementById("btnMin").disabled = false;
+      countSum.innerHTML = value;
     }
+  }
+
+  function addOrder(img, name, price, id) {
+    const count = Number(document.getElementById("countSum").innerHTML);
+    const total = price * count;
+
+    const obj = {
+        id,
+        img,
+        name,
+        price,
+        count,
+        total
+    };
+
+    const existingItem = order.find(item => item.id === id);
+
+    if (!existingItem) {
+        order.push(obj);
+    } else {
+        existingItem.count += count;
+        existingItem.total += total;
+    }
+
+    basketCount.innerHTML = order.length;
+    console.log(order);  // For debugging
+    closePopup();  // Close popup after adding item to the cart
 }
+
+// Initialize data
+datalar();

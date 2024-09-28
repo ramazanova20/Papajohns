@@ -59,7 +59,7 @@
                     <i class="fa-solid fa-user text-[25px]"></i>
                     <p class="font-bold">Giriş</p>
                 </div>
-                <div  class=" flex flex-col items-center relative">
+                <div id="popOrder" onclick="addOrder()" class=" flex flex-col items-center relative">
                     <i class="fa-solid fa-basket-shopping text-[30px]"></i>
                     <div class="flex ">
                         <span class="font-bold">0</span>
@@ -69,6 +69,7 @@
                         </div>
                     </div>
                 </div>
+                <div id="order" onclick="addOrder()"></div>
             </div>
         </div>
         <div id="header-bottom " class="bg-[#AD0F14]" >
@@ -108,80 +109,28 @@
                 </div>
             </div>
         </div>
+        <!-- <div id="popOrder"></div>
+            
+        </div> -->
     </header>
     <main>
 
-        <!-- <div class="bg-black opacity-50 fixed inset-0 z-[90]">
-            <div id="popCard" class="px-2 flex bg-[#fff] fixed inset-0 z-[100] top-[25%] lg:top-[30%] mx-auto h-[90%] flex-col items-center justify-center w-[95%] lg:w-[25%]">
-                <div class="bagla flex pb-2 items-end justify-end w-[100%]">
-                    <span class="text-[16px] font-bold">Bağla <i class="fa-solid fa-circle-xmark"></i></span>
-                </div>
-                <div class="card ">
-                    <div class="cardPic w-[320px] flex items-center justify-center">
-                        <img src="https://images.pexels.com/photos/236599/pexels-photo-236599.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" class="w-[90%] object-cover">
-                    </div>
-                    <div class="cardInfo pl-4 pr-4">
-                        <div class="cardName flex items-start justify-start">
-                            <h1 class="text-[22px] font-bold">${name}</h1>
-                        </div>
-                        <div class="category flex py-2 max-w-80 flex-row w-[100%] items-center justify-center">    
-                            <span class="bg-[#0F9675] text-black rounded-l-md flex items-center text-[15px] justify-center w-[100%] h-[30px]">Enenevi</span>
-                            <span class="bg-[#F1F1F1] text-black w-[100%] h-[30px] flex items-center rounded-md text-[15px] justify-center">Nazik</span>    
-                        </div>
-                        <div class="selectors w-[100%] py-4">
-                            <select style="display: block;" class="bg-[#AD0F14] outline-none text-[15px] text-white w-full h-[30px]">
-                                <option value="5.5">Mini pizza, 15 sm - 5.5 M</option>
-                                <option value="11">Kiçik, 23 sm - 11 M</option>
-                                <option value="17">Orta, 30 sm - 17 M</option>
-                                <option value="21">Böyük, 35 sm - 21 M</option>
-                            </select>
-                            <select style="display: none;" class="bg-[#AD0F14] outline-none text-[15px] text-white w-full h-[30px]">
-                                <option value="11">Kiçik, 23 sm - 11 M</option>
-                                <option value="17">Orta, 30 sm - 17 M</option>
-                                <option value="21">Böyük, 35 sm - 21 M</option>
-                            </select>
-                        </div>
-                        <div class="sum-count flex items-start lg:w-[100%] w-[100%] justify-between py-4">
-                            <div class="count flex items-start w-full justify-start flex-row">
-                                <button class="w-[29px] h-[29px] bg-[#F1F1F1] text-black text-[19px] font-bold">-</button>
-                                <span class="bg-[#F1F1F1] flex items-center justify-center w-[49px] h-[29px] text-black text-[19px] font-bold">1</span>
-                                <button class="w-[29px] h-[29px] bg-[#0F9675] text-white text-[19px] font-bold">+</button>
-                            </div>
-                            <p class="text-black text-[15px] font-bold">${price}₼</p>
-                        </div>
-                        <div class="lastCardPart flex justify-between w-[100%] py-4">
-                            <div  class=" flex flex-col items-center relative">
-                                <i class="fa-solid fa-basket-shopping text-[30px]"></i>
-                                <div class="flex ">
-                                    <span class="font-bold">0</span>
-                                    <div>
-                                        <i class="fa-solid fa-manat-sign"></i>
-                                        <div class="bg-[red] px-2 rounded-[70%] absolute top-0">0</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <button>Sebete at</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
         
-          <div class=" bg-[#f1f1f1] w-full py-[18px] flex items-center justify-center lg:w-[95%] lg:mx-auto my-4">
-            <div class="w-full flex items-center justify-center flex-row">
-                <div class="kodText flex text-[27px] textprm font-bold gap-3 justify-between">
+          <div class=" bg-[#f1f1f1] w-full py-[18px] flex-col lg:items-center lg:justify-center lg:w-[95%] lg:mx-auto my-4 lg:flex-row">
+            <div class="w-full flex items-center lg:justify-center flex-col lg:flex-row">
+                <div class="kodText flex text-[27px] textprm font-bold gap-3 lg:justify-between items-center lg:justify-center flex-col lg:flex-row">
                     <p>Promo kodunuz var?</p><span class="text-[#0F9675]">Endirimdən istifadə edin!</span>
                 </div>
-                <div class="kodInput flex pl-10">
-                    <input type="text" placeholder="Promo kodu daxil edin" class="border border-[#0F9675] rounded-md h-[39px] px-[10px] text-black text-[18px]">
-                    <a href="" class="bg-[#0F9675] flex items-center rounded-md font-bold justify-center text-[18px] text-white h-[39px] p-[10px]  w-[10%] lg:w-[15%] mx-[20px] uppercase text-center">Ok</a>
+                <div class="kodInput flex pl-10 flex-col items-center lg:justify-center lg:flex-row">
+                    <input type="text" placeholder="Promo kodu daxil edin" class="border border-[#0F9675] rounded-md h-[39px] lg:px-[10px] text-black text-[18px]">
+                    <a href="" class="bg-[#0F9675] flex items-center rounded-md font-bold justify-center text-[18px] text-white h-[39px] p-[20px]  w-[10%] lg:w-[15%] mx-[20px] uppercase text-center">Ok</a>
                 </div>
             </div>
           </div>
           <div class="product pb-[40px]">
             <div class="productInfo py-4">
-                <div class="list-none ingredients bg-[#F1F1F1] lg:w-[95%] lg:mx-auto flex flex-row py-2 gap-2">
-                    <ul class="flex flex-row items-center gap-2 justify-start mx-4 p-2"></ul>
+                <div class="list-none ingredients bg-[#F1F1F1] lg:w-[95%] lg:mx-auto flex flex-row py-2 gap-2 overflow-x-auto">
+                    <ul class="flex flex-row items-center gap-2 justify-start mx-4 p-2 overflow-x-auto"></ul>
                         <li class="text-[14px] font-bold lg:text-[23px]"><a href="/az/menu/pizza">Hamısı</a></li>
                         <li class="text-[14px] font-bold lg:text-[23px]"><a href="/az/menu/pizza/cheeken">Toyuqlu</a></li>
                         <li class="text-[14px] font-bold lg:text-[23px]"><a href="/az/menu/pizza/meat">Ət ilə</a></li>
@@ -190,16 +139,7 @@
                     </ul>
                 </div>
                 <div id="productList"  class=" lg:min-h-[40vh] lg:pt-[40px] w-full flex items-center justify-center gap-4 flex-wrap ">
-                    <!-- <div  class="proInfo  my-[10px] w-[95%] mx-auto lg:mx-0 lg:w-[20%] lg:my-[15px] lg:h-[350px]  ">
-                        <div class="proPic">
-                            <img src="https://images.pexels.com/photos/236599/pexels-photo-236599.jpeg?auto=compress&cs=tinysrgb&w=600" class="w-full object-cover lg:w-[100%] h-[220px] " alt="">
-                        </div>
-                        <div class="proText pt-2 flex justify-between">
-                            <span class="text-[20px] font-bold">${item.name}</span>
-                            <span class="bg-[#0F9675] cursor-pointer rounded-md text-white font-bold p-[5px]">Bunu seç</span>
-                        </div>
-                        <p class="text-[16px] pt-4">${item.composition}</p>
-                    </div> -->
+                    
                 </div>
             </div>
           </div>

@@ -35,10 +35,10 @@ datalar()
 
 const popProduct = document.getElementById("popProduct")
 
-function popup(img, name, price, id){
-    popProduct.innerHTML=`
+function popup(img, name, price, id) {
+    popProduct.innerHTML = `
      
-            <div class="bg-black opacity-80 fixed inset-0 z-[50]" onclick="closePopup()">
+            <div class="bg-[#00000038] fixed inset-0 z-[50]" onclick="closePopup()">
             <div id="popCard" class="px-2 flex bg-[#fff] fixed inset-0 z-[100] top-[25%] lg:top-[20%] mx-auto h-[75%] flex-col items-center justify-center w-[85%] lg:w-[25%]">
                 <div class="bagla flex pb-2 items-end justify-end w-[100%]">
                     <span onclick="closePopup()" class="text-[16px] font-bold">Bağla <i class="fa-solid fa-circle-xmark"></i></span>
@@ -97,24 +97,29 @@ function popup(img, name, price, id){
     `;
 }
 
+
+
+
 function closePopup() {
     popProduct.innerHTML = "";
-  }
-  
-  function countPro(arg) {
+}
+
+function countPro(arg) {
     const countSum = document.getElementById("countSum");
     let value = arg + Number(countSum.innerHTML);
-  
-    if (value < 1) {
-      countSum.innerHTML = 1;
-      document.getElementById("btnMin").disabled = true;
-    } else {
-      document.getElementById("btnMin").disabled = false;
-      countSum.innerHTML = value;
-    }
-  }
 
-  function addOrder(img, name, price, id) {
+    if (value < 1) {
+        countSum.innerHTML = 1;
+        document.getElementById("btnMin").disabled = true;
+    } else {
+        document.getElementById("btnMin").disabled = false;
+        countSum.innerHTML = value;
+    }
+}
+
+const order =[]
+
+function addOrder(img, name, price, id) {
     const count = Number(document.getElementById("countSum").innerHTML);
     const total = price * count;
 

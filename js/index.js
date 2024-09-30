@@ -35,7 +35,7 @@ const productList = document.getElementById("productList");
 
 const popProduct = document.getElementById("popProduct")
 
-function popup(img, name, price, id) {
+function popup(img, title, price, id) {
     popProduct.innerHTML = `
      
             <div class="bg-[#00000038] fixed inset-0 z-[50]" onclick="closePopup()">
@@ -49,7 +49,7 @@ function popup(img, name, price, id) {
                     </div>
                     <div class="cardInfo pl-4 pr-4">
                         <div class="cardName flex items-start justify-start">
-                            <h1 class="text-[22px] font-bold">${name}</h1>
+                            <h1 class="text-[22px] font-bold">${title}</h1>
                         </div>
                         <div class="category flex py-2 max-w-80 flex-row w-[100%] items-center justify-center">    
                             <span class="bg-[#0F9675] text-black rounded-l-md flex items-center text-[15px] justify-center w-[100%] h-[30px]">Enenevi</span>
@@ -87,7 +87,7 @@ function popup(img, name, price, id) {
                                     </div>
                                 </div>
                             </div>
-                            <button onclick="addOrder('${img}', '${name}', '${price}', '${id}')"  class="bg-[#0F9675] flex items-center rounded-md font-bold justify-center text-[18px] text-white w-[40%] lg:w-[35%] uppercase text-center">Sebete at</button>
+                            <button onclick="addOrder('${img}', '${title}', '${price}', '${id}')"  class="bg-[#0F9675] flex items-center rounded-md font-bold justify-center text-[18px] text-white w-[40%] lg:w-[35%] uppercase text-center">Sebete at</button>
                         </div>
                     </div>
                 </div>

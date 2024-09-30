@@ -1,37 +1,37 @@
 const productList = document.getElementById("productList");
 
-// async function fetchData(url) {
-//     const res = await fetch(url);
-//     return res.json()
-// }
+async function fetchData(url) {
+    const res = await fetch(url);
+    return res.json()
+}
 
-// let data = []
+let data = []
 
-// async function datalar() {
-//     data = await fetchData("https://raw.githubusercontent.com/TheOksigen/purfect_data/refs/heads/main/papajosn.json");
-//     show()
-// }
+async function datalar() {
+    data = await fetchData("https://raw.githubusercontent.com/TheOksigen/purfect_data/refs/heads/main/papajosn.json");
+    show()
+}
 
 
-// function show() {
-//     productList.innerHTML = '';
-//     data.map(item => {
-//         productList.innerHTML += `
-//              <div onclick="popup('${item.img}', '${item.name}', '${item.price}', '${item.id}')" class="proInfo  my-[10px] w-[95%] mx-auto lg:mx-0 lg:w-[22%]  lg:h-[350px]  ">
-//                         <div class="proPic">
-//                             <img src="${item.img}" class="w-full object-cover lg:w-[100%] h-[220px] " alt="">
-//                         </div>
-//                         <div class="proText pt-2 flex justify-between">
-//                             <span class="text-[20px] font-bold">${item.name}</span>
-//                             <span class="bg-[#0F9675] cursor-pointer rounded-md text-white font-bold p-[5px]">Bunu seç</span>
-//                         </div>
-//                         <p class="text-[16px] pt-4">${item.composition}</p>
-//                     </div>
-//         `;
-//     });
-// }
+function show() {
+    productList.innerHTML = '';
+    data.map(item => {
+        productList.innerHTML += `
+             <div onclick="popup('${item.img}', '${item.name}', '${item.price}', '${item.id}')" class="proInfo  my-[10px] w-[95%] mx-auto lg:mx-0 lg:w-[22%]  lg:h-[350px]  ">
+                        <div class="proPic">
+                            <img src="${item.img}" class="w-full object-cover lg:w-[100%] h-[220px] " alt="">
+                        </div>
+                        <div class="proText pt-2 flex justify-between">
+                            <span class="text-[20px] font-bold">${item.name}</span>
+                            <span class="bg-[#0F9675] cursor-pointer rounded-md text-white font-bold p-[5px]">Bunu seç</span>
+                        </div>
+                        <p class="text-[16px] pt-4">${item.composition}</p>
+                    </div>
+        `;
+    });
+}
 
-// datalar()
+datalar()
 
 const popProduct = document.getElementById("popProduct")
 
@@ -147,4 +147,4 @@ function addOrder(img, name, price, id) {
 }
 
 // Initialize data
-// datalar();
+datalar();

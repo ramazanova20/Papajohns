@@ -7,10 +7,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <style>
         ::-webkit-scrollbar{
             display: none;
         }
+        .slider-img {
+        width: 100%;
+         height: 400px; 
+         display: flex;
+        align-items: start;
+        justify-content: start;
+        overflow: hidden; 
+  }
+
+  .slider-img img {
+    height: 100%; 
+    width: 100%; 
+    object-fit: cover; 
+  }
     </style>
 </head>
 <body>
@@ -121,7 +138,7 @@
                 </div>
             </div>
           </div>
-          <div class="product pb-[40px]">
+          <!-- <div class="product pb-[40px]">
             <div class="productInfo py-4">
                 <div class="list-none ingredients bg-[#F1F1F1] lg:w-[95%] lg:mx-auto flex flex-row py-2 gap-2 overflow-x-auto">
                     <ul class="flex flex-row items-center gap-2 justify-start mx-4 p-2 overflow-x-auto"></ul>
@@ -131,19 +148,84 @@
                         <li class="text-[14px] font-bold lg:text-[23px]"> <a href="/az/menu/pizza/vegets">Vegetarian</a></li>
                         <li class="text-[14px] font-bold lg:text-[23px]"><a href="/az/menu/pizza/hot">Acılı</a></li>
                     </ul>
-                </div>
-                <div id="productList"  class=" lg:min-h-[40vh] lg:pt-[40px] w-full flex items-center justify-center gap-4 flex-wrap ">
+                </div> -->
+                <!-- <div id="productList"  class=" lg:min-h-[40vh] lg:pt-[40px] w-full flex items-center justify-center gap-4 flex-wrap ">
                     
-                </div>
-            </div>
+                </div> -->
+            <!-- </div>
           </div>
           <div  id="popProduct">
 
+          </div> -->
+          <div class="slider-main p-2 w-[95%] h-full flex items-center justify-center mx-auto">
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="slider-img flex items-center w-full justify-center">
+                    <img src="img/nerimanov-achilish.png" class="w-[100%] object-cover h-full" alt="">
+                  </div>
+                </div>
+                <div class="swiper-slide flex items-center justify-center">
+                  <div class="slider-img w-[100%]">
+                    <img src="img/bir-il-birlikde-azadliq-banner.png" class="w-[100%] object-cover" alt="">
+                  </div>
+                </div>
+                <div class="swiper-slide flex items-center justify-center">
+                  <div class="slider-img w-[100%]">
+                    <img src="img/Sayt-banner-vakansiya.png" class="w-[100%] object-cover" alt="">
+                  </div>
+                </div>
+                <div class="swiper-slide flex items-center justify-center">
+                  <div class="slider-img w-[100%]">
+                    <img src="img/parklara chatdirilma.jpg" class="w-[100%] object-cover" alt="">
+                  </div>
+                </div>
+                <div class="swiper-slide flex items-center justify-center">
+                  <div class="slider-img w-[100%]">
+                    <img src="img/Sayt Banner Bol Bol 2023.jpg" class="w-[100%] object-cover" alt="">
+                  </div>
+                </div>
+                <div class="swiper-slide flex items-center justify-center">
+                  <div class="slider-img w-[100%]">
+                    <img src="img/pizza-party-2023-feed.png" class="w-[100%] object-cover" alt="">
+                  </div>
+                </div>
+                <div class="swiper-slide flex items-center justify-center">
+                  <div class="slider-img w-[100%]">
+                    <img src="img/yashin-qeder-endirim.png" class="w-[100%] object-cover" alt="">
+                  </div>
+                </div>
+                <div class="swiper-slide flex items-center justify-center">
+                  <div class="slider-img w-[100%]">
+                    <img src="img/papa talk.jpg" class="w-[100%] object-cover" alt="">
+                  </div>
+                </div>
+              </div>
+              <!-- Pagination -->
+              <div class="swiper-pagination"></div>
+            </div>
           </div>
+          
     </main>
     <footer></footer>
     <script src="../js/data.js"></script>
     <script src="../js/category.js"></script>
     <script src="../js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper(".mySwiper", {
+          // Optional parameters
+          loop: true, // Enable continuous loop mode
+          autoplay: {
+            delay: 3000, // 3 seconds delay between transitions
+            disableOnInteraction: false, // Continue autoplay after interactions
+          },
+          pagination: {
+            el: ".swiper-pagination", // Enable pagination (dots)
+            clickable: true,
+          },
+        });
+      </script>
+      
 </body>
 </html>

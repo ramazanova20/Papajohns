@@ -1,6 +1,6 @@
 const category =[]
 
-fetch("http://localhost:3000/category")
+fetch("httpS://papajson.vercel.app/category")
 .then(res => res.json())
 .then(info => {
     category.push(...info)

@@ -1,33 +1,30 @@
 const url = window.location.search.split("=").at("-1")
 console.log(url);
 
-const DATA =[]
-fetch(`http://localhost:3000/${url}`)
-.then(res => res.json())
-.then(pro => {
-    DATA.push(...pro)
-    go()
-})
-.catch(err => {
-    alert("Axtarisiniz uzre netice tapilmadi")
-})
+const DATA = []
+fetch(`https://papajson.vercel.app/${url}`)
+    .then(res => res.json())
+    .then(pro => {
+        DATA.push(...pro)
+        go()
+    })
+
 // .finally(load => {
 //     loading
 // })
 
-function go(){
+
+function go() {
     DATA.map(item => {
-            productList.innerHTML += `
-                <a href="/pages/details.htm?category=${item.category}&id=${item.id} class="proInfo  my-[10px] w-[95%] mx-auto lg:mx-0 lg:w-[22%]  lg:h-[350px]  ">
-                    <div class="proPic">
-                        <img src="${item.img}" class="w-full object-cover lg:w-[100%] h-[220px] " alt="">
-                    </div>
-                    <div class="proText pt-2 flex justify-between">
-                        <span class="text-[20px] font-bold">${item.title}</span>
-                        <span class="bg-[#0F9675] cursor-pointer rounded-md text-white font-bold p-[5px]">Bunu seç</span>
-                    </div>
-                    <p class="text-[16px] pt-4">${item.composition}</p>
-                </a>
+        content.innerHTML += `
+        <a href="/pages/details.htm?category=${item.category}&id=${item.id}"  class="w-full sm:w-[48%]  h-[400px] lg:w-[30%] xl:w-[23%] my-5 shadow-md rounded-md">
+            <img class="w-full h-[55%] object-cover" src="${item.img}" alt="pizza" />
+            <div class="flex justify-between mt-4 mb-2">
+            <p class="font-bold text-[18px] mr-2">${item.title}</p>
+            <button class="text-[14px] bg-green-700 text-white uppercase font-bold p-[8px] rounded-md">Bunu seç</button>
+            </div>
+            <p class="px-2">${item.composition}</p>
+        </a>
                `;
-           })
+    })
 }

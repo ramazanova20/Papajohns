@@ -2,8 +2,11 @@
   "dependencies": {
     "json-server": "^1.0.0-beta.3"
   },
-
   "scripts": {
-    "server": "npx json-server./data/db.json --port 3000"
+    "server": "npx json-server ./data/db.json --port 3000",
+    "css": "npx tailwindcss -i ./css/style.css -o ./css/output.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.13"
   }
 }

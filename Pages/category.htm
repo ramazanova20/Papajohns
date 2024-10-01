@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+     <link rel="stylesheet" href="../src/output.css">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    
+    <style>
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        .slider-img {
+            width: 100%;
+            height: 400px;
+            display: flex;
+            align-items: start;
+            justify-content: start;
+            overflow: hidden;
+        }
+
+        .slider-img img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="header-top" class="hidden lg:block">
+            <div>
+                <a href=""
+                    class="logo items-center justify-center absolute left top-[5%] lg:top-[6.5%] left-[5%] lg:left-[1%]  pt-[20px]">
+                    <img src="../img/pj_logo_web_new.png" alt="Logo" class="lg:w-[30%] xl:w-[38%]">
+                </a>
+                <div class="list flex flex-row justify-around pt-[22px] pb-[22px]">
+                    <ul class="header-bigmainmenu flex flex-row gap-2">
+                        <li> <a href="" class="font-bold text-[24px]">Restoranlar</a></li>
+                        <li><a href="" class="font-bold text-[24px]">PapaBonus</a></li>
+                    </ul>
+                    <div id="header-usermenu" class="flex items-center justify-between py-2 px-3 gap-4">
+                        <div class=" flex flex-col items-center">
+                            <img class="w-6" src="../img/flag_az.png" alt="bayrag" />
+                            <p class="font-bold">Az</p>
+                        </div>
+                        <div class=" flex flex-col items-center">
+                            <i class="fa-solid fa-user text-[25px]"></i>
+                            <p class="font-bold">Giriş</p>
+                        </div>
+                        <div class=" flex flex-col items-center relative">
+                            <i class="fa-solid fa-basket-shopping text-[30px]"></i>
+                            <div class="flex ">
+                                <span class="font-bold">0</span>
+                                <div>
+                                    <i class="fa-solid fa-manat-sign"></i>
+                                    <div class="bg-[red] px-2 rounded-[70%] absolute top-0">0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" mobile-show lg:hidden">
+            <div class="flex items-center justify-between py-2 px-3">
+                <div class="w-[15%]"><img src="img/pj_logo_web_new.png" alt="logo" /></div>
+                <div class=" flex flex-col items-center">
+                    <img class="w-6" src="img/flag_az.png" alt="bayrag" />
+                    <p class="font-bold">Az</p>
+                </div>
+                <div class=" flex flex-col items-center">
+                    <i class="fa-solid fa-user text-[25px]"></i>
+                    <p class="font-bold">Giriş</p>
+                </div>
+                <div id="popOrder" onclick="addOrder()" class=" flex flex-col items-center relative">
+                    <i class="fa-solid fa-basket-shopping text-[30px]"></i>
+                    <div class="flex ">
+                        <span class="font-bold">0</span>
+                        <div>
+                            <i class="fa-solid fa-manat-sign"></i>
+                            <div id="basketCount" class="bg-[red] px-2 rounded-[70%] absolute top-0">0</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="order" onclick="addOrder()"></div>
+            </div>
+        </div>
+        <div id="header-bottom " class="bg-[#AD0F14]">
+            <div class="justify-end pt-[20px] pb-[20px] relative header2">
+                <div class="header1 flex flex-row gap-2 text-white justify-center">
+                    <!-- <div class="logodiv">
+                        <a href="" class="logo items-center justify-center absolute left top-[2px] left-[10px]  pb-[80px] ">
+                            <img src="img/pj_logo_web_new.png" alt="Logo" class="w-[40%]">
+                        </a>
+                    </div> -->
+                    <ul id="menu"
+                        class="flex flex-row  gap-2 px-3  text-white overflow-x-auto ml-0 lg:ml-[150px] uppercase font-bold text-[16px] lg:text-[18px]">
+                        <!--                         
+                        <li><a href="">Kampaniyalar</a></li>
+                        <li><a href="">Papadias</a></li>
+                        <li><a href="">Pizza</a></li>
+                        <li><a href="">Qəlyanaltı</a></li>
+                        <li><a href="">Salat</a></li>
+                        <li><a href="">Pasta</a></li>
+                        <li><a href="">İçki</a></li>
+                        <li><a href="">Desert</a></li>
+                        <li><a href="">Sous</a></li> -->
+                    </ul>
+                    <div class="ball-count flex flex-row uppercase font-bold text-[16px] lg:text-[18px]">
+                        <a href="">
+                            <p><span>0</span> bal</p>
+                        </a>
+                        <a href="" class="b-modal__btn">
+                            <i class="fa fa-question" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div id="popOrder"></div>
+            
+        </div> -->
+    </header>
+    <main>
+        <div id="content" class=" lg:min-h-[40vh] lg:p-[40px] w-full flex items-center justify-center gap-4 flex-wrap "></div>
+
+    </main>
+    <footer class="py-6  bg-[#AD0F14]">
+        <div
+            class="  lg:hidden container px-6 mx-auto space-y-6 divide-y dark:divide-gray-600 md:space-y-12 divide-opacity-50 ">
+            <div class="grid grid-cols-12">
+
+                <div class="col-span-6 text-center md:text-left md:col-span-3">
+                    <p class="pb-1 text-[18px] font-bold text-white">Haqqımızda</p>
+                    <ul>
+                        <li>
+                            <a rel="noopener noreferrer" href="#"
+                                class="hover:dark:text-violet-600 pb-[20px] text-[18px] font-bold text-white">Sual-Cavab</a>
+                        </li>
+                        <li>
+                            <a rel="noopener noreferrer" href="#"
+                                class="hover:dark:text-violet-600 pb-[20px] text-[18px] font-bold text-white">Karyera</a>
+                        </li>
+                        <li>
+                            <a rel="noopener noreferrer" href="#"
+                                class="hover:dark:text-violet-600 pb-[20px] text-[18px] font-bold text-white">Xəmir</a>
+                        </li>
+                        <li>
+                            <a rel="noopener noreferrer" href="#"
+                                class="hover:dark:text-violet-600 pb-[20px] text-[16px] font-bold text-white">Papa Talk
+                                - Şərtlər və Qaydalar</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="col-span-6 text-center md:text-left md:col-span-3">
+                    <p class="pb-1 text-[18px] font-bold text-white">Restoranlar</p>
+                    <ul>
+                        <li>
+                            <a rel="noopener noreferrer" href="#"
+                                class="hover:dark:text-violet-600 pb-[20px] text-[18px] font-bold text-white">Kampaniyalar</a>
+                        </li>
+                        <li>
+                            <a rel="noopener noreferrer" href="#"
+                                class="hover:dark:text-violet-600 pb-[20px] text-[18px] font-bold text-white">PapaBonus</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="grid justify-center pt-6 lg:justify-between border-none">
+                <div class="flex flex-col self-center text-sm text-center md:block lg:col-start-1 md:space-x-6">
+                    <div class="bg-foot pb-[20px]">
+                        <img src="img/footer-images-az-AZ.png " alt="">
+                    </div>
+                    <div class="social flex items-center justify-center flex-row gap-5">
+                        <i class="fa-brands fa-facebook-f text-white text-[22px]"></i>
+                        <i class="fa-brands fa-twitter text-white text-[22px]"></i>
+                        <i class="fa-brands fa-instagram text-white text-[22px]"></i>
+                        <img src="img/tripadvisor (1).png" class="w-[30px] h-[30px] object-cover" alt="">
+                    </div>
+                </div>
+                <div class="flex justify-center pt-4 space-x-4 lg:pt-0 lg:col-end-13">
+                    <span class="text-[19px] font-bold text-white">© PJA 2024</span>
+                </div>
+            </div>
+        </div>
+        <div
+            class="container w-full lg:grid  hidden px-6 mx-auto space-y-6 divide-y dark:divide-gray-600 md:space-y-12 divide-opacity-50">
+            <div class="flex justify-between items-center ">
+                <div class="text-center flex items-center justify-center  w-[60%]">
+                    <div class="flex justify-center md:w-1/4">
+                        <span class="text-[19px] font-bold text-white">© PJA 2024</span>
+                    </div>
+                    <ul class="flex flex-row  w-full items-center justify-center gap-2">
+                        <li>
+                            <a rel="noopener noreferrer" href="#"
+                                class="hover:dark:text-violet-600 pb-[20px] text-[18px] font-bold text-white">Haqqımızda</a>
+                        </li>
+                        <li>
+                            <a rel="noopener noreferrer" href="#"
+                                class="hover:dark:text-violet-600 pb-[20px] text-[18px] font-bold text-white">Sual-Cavab</a>
+                        </li>
+                        <li>
+                            <a rel="noopener noreferrer" href="#"
+                                class="hover:dark:text-violet-600 pb-[20px] text-[18px] font-bold text-white">Karyera</a>
+                        </li>
+                        <li>
+                            <a rel="noopener noreferrer" href="#"
+                                class="hover:dark:text-violet-600 pb-[20px] text-[18px] font-bold text-white">Xəmir</a>
+                        </li>
+                        <li>
+                            <a rel="noopener noreferrer" href="#"
+                                class="hover:dark:text-violet-600 pb-[20px] text-[16px] font-bold text-white">Papa Talk
+                                - Şərtlər və Qaydalar</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+                <div class="flex w-[50%] flex-row items-center justify-center gap-4">
+
+                    <img src="img/footer-images-az-AZ.png" alt="" class="border-r-2 border-r-[#eee] pr-4">
+
+                    <div class="social flex items-center justify-center flex-row gap-5">
+                        <i class="fa-brands fa-facebook-f text-white text-[22px]"></i>
+                        <i class="fa-brands fa-twitter text-white text-[22px]"></i>
+                        <i class="fa-brands fa-instagram text-white text-[22px]"></i>
+                        <i class="fa fa-tripadvisor text-white text-[22px]"></i>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="../js/data.js"></script>
+    <script src="../js/category.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper(".mySwiper", {
+            // Optional parameters
+            loop: true, // Enable continuous loop mode
+            autoplay: {
+                delay: 3000, // 3 seconds delay between transitions
+                disableOnInteraction: false, // Continue autoplay after interactions
+            },
+            pagination: {
+                el: ".swiper-pagination", // Enable pagination (dots)
+                clickable: true,
+            },
+        });
+    </script>
+
+</body>
+
+</html>

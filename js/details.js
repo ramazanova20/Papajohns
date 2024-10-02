@@ -9,11 +9,30 @@ fetch(`https://papajson.vercel.app/${categor}/${id}`)
     .then(ser => ser.json())
     .then(ord => {
         PRODUCT.push(ord)
+        console.log(PRODUCT)
         order()
     })
 const popProduct = document.getElementById('popProduct')
 function order() {
     PRODUCT.map(item =>{ 
+
+        let eneneviVariables = '';
+            let nazikVariables = '';
+    
+          
+            if (item.category === "pros") {
+                eneneviVariables = item.variables
+                    .filter(variable => variable.type === "Ənənəvi")
+                    .map(variable =>
+                        `<option value="${variable.price}">${variable.size}</option>`
+                    ).join("");
+    
+                    nazikVariables = item.variables
+                    .filter(variable => variable.type === "Nazik")
+                    .map(variable =>
+                        `<option value="${variable.price}">${variable.size}</option>`
+                    ).join("");
+            }
 
         popProduct.innerHTML += `
      
@@ -32,15 +51,10 @@ function order() {
                         </div>
                         <div class="selectors w-[100%] py-4">
                             <select style="display: block;" class="bg-[#AD0F14] outline-none text-[15px] text-white w-full h-[30px]">
-                                <option value="5.5">Mini pizza, 15 sm - 5.5 M</option>
-                                <option value="11">Kiçik, 23 sm - 11 M</option>
-                                <option value="17">Orta, 30 sm - 17 M</option>
-                                <option value="21">Böyük, 35 sm - 21 M</option>
+                                ${eneneviVariables}
                             </select>
                             <select style="display: none;" class="bg-[#AD0F14] outline-none text-[15px] text-white w-full h-[30px]">
-                                <option value="11">Kiçik, 23 sm - 11 M</option>
-                                <option value="17">Orta, 30 sm - 17 M</option>
-                                <option value="21">Böyük, 35 sm - 21 M</option>
+                                ${nazikVariables}
                             </select>
                         </div>
                         <div class="sum-count flex items-start lg:w-[100%] w-[100%] justify-between py-4">
@@ -50,7 +64,7 @@ function order() {
                                 <button  onclick="countPro(1) class="w-[29px] h-[29px] bg-[#0F9675] text-white text-[19px] font-bold">+</button>
                             </div>
                            
-                            <p id="priceNtc" class="text-black text-[19px] font-bold" data-price="${item.price}">Price : ${item.price} ₼</p>
+                            <p id="priceNtc" class="text-black text-[19px] font-bold">Price : ${item.price} ₼</p>
                         </div>
                         <div class="lastCardPart flex justify-between w-[100%] py-4">
                             <div  class=" flex flex-col items-center relative">

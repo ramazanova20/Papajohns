@@ -1,8 +1,8 @@
-const url = window.location.search.split("=").at("-1")
-console.log(url);
+const url2 = window.location.search.split("=").at("-1")
+// console.log(url);
 
 const DATA = []
-fetch(`https://papajson.vercel.app/${url}`)
+fetch(`https://papajson.vercel.app/${url2}`)
     .then(res => res.json())
     .then(pro => {
         DATA.push(...pro)

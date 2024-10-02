@@ -17,7 +17,6 @@ function order() {
 
         popProduct.innerHTML += `
      
-            <a href="/pages/details.htm?category=${item.category}&id=${item.id}" >
             <div id="popCard" class="px-2 mt-20 flex flex-col lg:flex-row mx-auto items-center justify-center lg:justify-around w-[25%] lg:w-[85%]">
                 <div class="card flex flex-column lg:flex-row lg:w-[20%] w-[80%] items-start mt-20 lg:h-[full] justify-start">
                     <div class="cardPic  lg:w-[30%] w-[90%] flex items-center justify-center">
@@ -50,7 +49,8 @@ function order() {
                                 <span id="countSum" class="bg-[#F1F1F1] flex items-center justify-center w-[49px] h-[29px] text-black text-[19px] font-bold">1</span>
                                 <button  onclick="countPro(1) class="w-[29px] h-[29px] bg-[#0F9675] text-white text-[19px] font-bold">+</button>
                             </div>
-                            <p class="text-black text-[15px] font-bold">${item.price}₼</p>
+                           
+                            <p id="priceNtc" class="text-black text-[19px] font-bold" data-price="${item.price}">Price : ${item.price} ₼</p>
                         </div>
                         <div class="lastCardPart flex justify-between w-[100%] py-4">
                             <div  class=" flex flex-col items-center relative">
@@ -63,12 +63,12 @@ function order() {
                                     </div>
                                 </div>
                             </div>
-                            <button onclick="addOrder('${item.img}', '${item.title}', '${item.price}', '${item.id}')"  class="bg-[#0F9675] flex items-center rounded-md font-bold justify-center text-[18px] text-white w-[40%] lg:w-[35%] uppercase text-center">Sebete at</button>
+                            
+                            <button onclick="addOrder('${item.img}', '${item.title}', '${item.price}', '${item.id}')"  class="bg-[#0F9675] cursor-pointer flex items-center rounded-md font-bold justify-center text-[12px] text-white w-[40%] lg:w-[55%] uppercase text-center">Sebete at</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </a>
         =
     `;
     })
